@@ -11,6 +11,17 @@ const color = document.getElementById("color");
 const lineWidth = document.getElementById("line-width");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+const font = document.getElementById("font");
+const fontsize = document.getElementById("font-size");
+
+const NanumGothic = new FontFace(
+  "NanumGothic",
+  "url(fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+);
+const NotoSans = new FontFace(
+  "NotoSans",
+  "url(fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap)"
+);
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 800;
@@ -94,10 +105,12 @@ function onFileChange(event) {
 
 function onDoubleClick(event) {
   const text = textInput.value;
+  let F_SIZE = fontsize.value + "px";
+  let F_OPTION = font.value;
   if (text !== "") {
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "68px serif";
+    ctx.font = `${F_SIZE} ${F_OPTION}`;
     ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.lineWidth = lineWidth.value;
     ctx.restore();
@@ -130,3 +143,13 @@ destroyBtn.addEventListener("click", onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
 saveBtn.addEventListener("click", onSaveClick);
+
+document.querySelector(".range").addEventListener("input", function (event) {
+  var gradient_value = 100 / event.target.attributes.max.value;
+  event.target.style.background =
+    "linear-gradient(to right, #FFE283 0%, #FFE283 " +
+    gradient_value * event.target.value +
+    "%, rgb(236, 236, 236) " +
+    gradient_value * event.target.value +
+    "%, rgb(236, 236, 236) 100%)";
+});

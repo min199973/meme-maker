@@ -82,4 +82,45 @@ input#text {
   border-radius: 10px;
   font-weight: 500;
   background-color: white;
+  color: black;
+}
+
+.font-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 50px 50px;
+}
+#font {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.font-selection p {
+  font-size: 30px;
+}
+
+.range {
+  margin-bottom: 30px;
+}
+
+#font-size {
+  width: 90%;
+  background: linear-gradient(
+    to right,
+    #ffe283 0%,
+    #ffe283 50%,
+    #ececec 50%,
+    #ececec 100%
+  );
+  border-radius: 8px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+  accent-color: #ffca1d;
 }

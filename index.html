@@ -83,7 +83,28 @@
         🔍Add Photo
         <input type="file" accept="image/*" id="file" />
       </label>
-      <input type="text" placeholder="Add text here... :)" id="text" />
+      <label for="font-selection" class="font-selection">
+        <p>Font Selection</p>
+        <select id="font">
+          <option class="font-option" value="NanumGothic">NanumGothic</option>
+          <option class="font-option" value="NotoSans">NotoSans</option>
+        </select>
+        <input
+          type="range"
+          id="font-size"
+          value="5"
+          min="0"
+          max="10"
+          step="1"
+          class="range"
+        />
+        <input
+          type="text"
+          placeholder="Add text here... :)"
+          id="text"
+          class="text"
+        />
+      </label>
       <button id="save">🖼Save image</button>
     </div>
     <script src="app.js"></script>
